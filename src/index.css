@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --burgundy:     #61000A;
+  --olive:        #6D7953;
+  --green-light:  #C0DC81;
+  --pink-soft:    #FFD4E0;
+  --pink-active:  #D46989;
+  --cream:        #FFFBF8;
+  --text-dark:    #1A1A1A;
+  --text-mid:     #4A4A4A;
+  --text-light:   #888888;
+  --font-display: 'Museo Moderno', serif;
+  --font-body:    'Be Vietnam Pro', sans-serif;
+  --font-accent:  'Dancing Script', cursive;
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --radius-xl:    40px;
+  --shadow-soft:  0 4px 24px rgba(97, 0, 10, 0.08);
+  --shadow-card:  0 8px 40px rgba(97, 0, 10, 0.12);
+  --shadow-hover: 0 16px 48px rgba(212, 105, 137, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pink-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-active);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy);
+}
+
+/* Selection color */
+::selection {
+  background: var(--pink-active);
+  color: white;
+}
+
+/* Smooth images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Touch optimization for mobile */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Accent font utility */
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* Glow effect for membership cards */
+.glow-pink {
+  box-shadow: 0 0 40px rgba(212, 105, 137, 0.3), 0 0 80px rgba(212, 105, 137, 0.15);
+}
+
+.glow-burgundy {
+  box-shadow: 0 0 40px rgba(97, 0, 10, 0.3), 0 0 80px rgba(97, 0, 10, 0.15);
+}
+
+/* Gradient text utility */
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--burgundy), var(--pink-active));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Blur backdrop */
+.backdrop-nav {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Product out of stock overlay */
+.out-of-stock-overlay {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--progress); }
+}
+
+.progress-animated {
+  animation: progressFill 1s ease-out forwards;
+}
+
+/* Toast animation */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-enter {
+  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Clip path for hero image */
+.clip-hero {
+  clip-path: polygon(8% 0%, 100% 0%, 100% 92%, 0% 100%);
+}
+
+/* Dashboard tab indicator */
+.tab-active {
+  position: relative;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pink-active);
+  border-radius: 2px;
+}
